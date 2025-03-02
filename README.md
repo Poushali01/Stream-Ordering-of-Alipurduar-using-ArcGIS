@@ -19,12 +19,12 @@ The following datasets are used in this project:
 - [Stream Ordering](https://github.com/Poushali01/My-Geospatial-Project/raw/main/Stream%20Ordering.zip)
 
 
-### 📂 Stream Ordering Report
+### 📄 Stream Ordering Report
 
-[Stream Ordering of Alipurduar using ArcGIS (PDF)](https://github.com/YourUsername/YourRepository/raw/main/Stream%20Ordering%20of%20Alipurduar%20using%20ArcGIS.pdf)
+[Stream Ordering of Alipurduar using ArcGIS (PDF)](https://github.com/Poushali01/Stream-Ordering-of-Alipurduar-using-ArcGIS/raw/main/Stream%20Ordering%20of%20Alipurduar%20using%20ArcGIS.pdf)
 
 
-### Layouts
+### 🌍 Spatial Data Representation of Alipurduar District
 ![layout_page-0001](https://github.com/user-attachments/assets/44793674-372b-4f58-8d02-de32db349ddd)
 
 
