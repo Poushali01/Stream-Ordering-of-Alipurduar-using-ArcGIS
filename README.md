@@ -1,6 +1,6 @@
 # 🌍 Stream Ordering in Alipurduar District using ArcGIS  
 
-## 📌 Project Overview  
+## 📌 Project Overview                                            
 - 📍 *Location:* Alipurduar District, West Bengal, India  
 - 🗺 *Software Used:* ArcGIS, Python  
 - 🏞 *Data Used:* Digital Elevation Model (DEM)  
@@ -9,23 +9,48 @@
 The following datasets are used in this project:  
 
 ### 🗺 1. Raw Data  
-- **alipurduar_dem.tif**: Digital Elevation Model (DEM) for Alipurduar district.  
-- **rivers.shp** (Zipped): Vector shapefile of river networks.  
+- - [Alipurduar DEM (Fill Analyst)](https://github.com/Poushali01/My-Geospatial-Project/raw/main/Alipurduar%20DEM%20(Fill%20Analyst).zip)  
+- [Alipurduar Shapefile](https://github.com/Poushali01/My-Geospatial-Project/raw/main/Alipurduar%20Shapefile.zip)
 
 ### 🔍 2. Processed Data  
-- **final_streams.geojson**: GeoJSON file containing processed stream orders.  
+- [Flow Direction](https://github.com/Poushali01/My-Geospatial-Project/raw/main/Flow%20Direction.zip)    
 
 ### 📊 3. Outputs  
-- **stream_ordering_map.png**: Visualization of the stream order classification.
-  
+- [Stream Ordering](https://github.com/Poushali01/My-Geospatial-Project/raw/main/Stream%20Ordering.zip)
+
 
 ## 🚀 How to Use  
-1. Open stream_ordering.py in ArcGIS Python environment.  
-2. Run the script to process the stream order.  
-3. View the output in ArcGIS.  
+The following workflow was used to analyze the stream network of Alipurduar using ArcGIS hydrological tools:
 
-## 📷 Layout
-![Screenshot 2025-03-02 101507](https://github.com/user-attachments/assets/cfa2c9ac-c97f-4b83-ab5d-6ffd081f25de)
- 
-## 🔗 Connect with Me  
-[Google Sites Portfolio](https://sites.google.com/view/poushalibhattacharya/home)
+1️⃣ Fill DEM → Remove sinks and smoothen water flow.
+2️⃣ Flow Direction → Generate a raster showing water movement.
+3️⃣ Flow Accumulation → Identify major drainage paths.
+4️⃣ Set Threshold Value → Use Raster Calculator to filter significant streams.
+5️⃣ Stream Ordering → Classify streams using Strahler's method.
+6️⃣ Convert to Vector → Transform streams into vector format for better visualization.
+7️⃣ Final Layout & Map Composition → Prepare the final map.
+
+🔹 Tools Used → ArcGIS Spatial Analyst, Raster Calculator, and Cartography tools.
+
+
+## 🛠 Code Used  
+The following Python commands were executed in the *ArcGIS Python Prompt* to generate stream ordering of Alipurduar:
+
+```python
+import arcpy  
+from arcpy.sa import  
+
+# Fill sinks in the DEM
+fill = Fill("Alipurduar_DEM")
+
+# Compute Flow Direction
+flow_di = FlowDirection("Fill_Dem", "NORMAL")
+
+# Compute Flow Accumulation
+flow_accumulation = FlowAccumulation("Flow_Direction", "Fill_Dem", "FLOAT")
+
+# Compute Stream Order using the Strahler method
+stream_ordering = StreamOrder("Flow_Raster", "Flow_Direction", "STRAHLER")
+
+# Convert Stream Order raster to vector features
+stream_to_feature = StreamToFeature("Stream_Order", "Flow_Direction", "Stream")
