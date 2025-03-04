@@ -6,7 +6,7 @@
 - 🏞 *Data Used:* Digital Elevation Model (DEM)  
 
 ## 📂 Dataset Overview  
- Raw Data Source for SRTM DEM is USGS Earth Explorer and The shapefile used in this project was provided for academic purposes. Similar datasets can be accessed from publicly available sources like OpenStreetMap, Bhuvan (ISRO), or government GIS portals.
+ Raw Data Source for SRTM DEM is downloded from USGS Earth Explorer and The shapefile used in this project was provided for academic purposes. Similar datasets can be accessed from publicly available sources like OpenStreetMap, Bhuvan (ISRO), or government GIS portals.
 The following datasets are used in this project:
 
 ### 🗺 1. Raw Data  
